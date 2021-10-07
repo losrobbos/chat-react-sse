@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat API</title>
+</head>
+
+<body>
+
+    <form id="frmChat" autocomplete="off">
+        <textarea readonly id="messages" rows=5 cols=30></textarea><br />
+        <input type="text" id="user" value="Rob" />
+        <input type="text" id="message" />
+        <button type="submit" id="btnSend">Send</button>
+    </form>
+
+    <script>
+
+        // Implement event source listener
+        const API_URL = "http://localhost:5000"
+        const evtSource = new EventSource(`${API_URL}/message`);
+
+        const userName = document.querySelector("#user").value
+
+        // EventSource attaches to the API route
+        // and forwards us all data as objects!
+        evtSource.addEventListener('message', event => {
+            const data = JSON.parse(event.data);
+            console.log("Received:", data)
+            document.querySelector("#messages").value += 
+                `${data.user}: ${data.message}\n` 
+        })
+
+        // var btnSend = document.querySelector("#btnSend") 
+        // btnSend.addEventListener('click', async (e) => {
+
+        var frmChat = document.querySelector("#frmChat") 
+        frmChat.addEventListener('submit', async (e) => {
+            e.preventDefault()
+            let msgInput = document.querySelector("#message") 
+            console.log("Chat message:", msgInput.value)            
+            const response = await fetch(`${API_URL}/message`, {
+                method: "POST", 
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    user: userName,
+                    message: msgInput.value
+                })
+            })
+            // clear input 
+            msgInput.value = ""
+            
+        })
+    </script>
+</body>
+
+</html>
