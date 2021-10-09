@@ -55,14 +55,18 @@ function App() {
     console.log("Sending: ", msgToSend)
 
     try {
-      await fetch(`${API_URL}/message`, {
+      fetch(`${API_URL}/message`, {
           method: "POST", 
           headers: {"Content-Type": "application/json"},
           body: JSON.stringify({
               user,
               message: msgToSend
           })
-      })      
+      })
+      .catch((err) => {
+        console.log(err)
+        msgRef.current.value = msgToSend
+      })
       msgRef.current.value = ""
     }
     catch(err) {
