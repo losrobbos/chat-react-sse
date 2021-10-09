@@ -25,7 +25,11 @@ api.get('/messages', (req, res) => {
     res.flushHeaders() // force sending of headers before data
 
     res.write(`event: message\n`);
-    res.write(`data: ${JSON.stringify({ user: "Admin", message: "May the force be with you..."})}\n\n`);
+    res.write(`data: ${JSON.stringify({ 
+        user: "Admin", 
+        message: "May the force be with you...",
+        timestamp: Date.now()
+    })}\n\n`);
 
     // register event listener on express instance!
     api.on("message", (msg) => {

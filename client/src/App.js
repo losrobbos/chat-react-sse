@@ -21,7 +21,7 @@ function App() {
   }
 
   useEffect(() => {
-    evtSource.current = new EventSource(`${API_URL}/eventstream`);
+    evtSource.current = new EventSource(`${API_URL}/messages`);
 
     evtSource.current.onerror = (e) => {
       console.log(e)
