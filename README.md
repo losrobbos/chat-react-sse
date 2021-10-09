@@ -7,15 +7,19 @@ This App show how to realize a chat by subscribing to events on a server using
 
 Demo: [https://chat-sse-ui.vercel.app](https://chat-sse-ui.vercel.app/)
 
-## Deployment Notes for 
+## Deployment Notes
 
-In the demo the Frontend is deployed to Vercel and the backend / API to Heroku.
+In the demo the Frontend is deployed to VERCEL and the backend / API to HEROKU.
 
-At the time of writing (Oct 2021) Vercel does not support natively push messages from a server, but Heroku does.
+Why that?
 
-Wonder how to deploy one folder in your Repo to vercel and the other folder to Heroku?
+At the time of writing (Oct 2021) Vercel does not support natively push messages from a server. 
 
-To create a Heroku deploy project do:
+But Heroku does.
+
+Wonder how to deploy one folder in your repo to vercel and the other folder to Heroku?
+
+First let's link our Repository to Heroku with:
 
 `heroku login`
 `heroku create:apps <YourApiName>` (example: `heroku create:apps my-chat-api`)
@@ -30,12 +34,16 @@ We do not want that.
 
 We could create a sub-repository in the api folder instead, that that brings a lot of complications.
 
-Instead we can now tell Heroku to push a subdirectory (!) on deploy.
+Instead we can now tell Heroku to push a subdirectory (!) only on deploy.
 
-Within your main repo folder do:
+Within your main repo folder you can do this with:
 
 `git subtree push --prefix api heroku main`
 
 Et voila: Now Heroku should just push and deploy the api folder and make it available on an URL.
 
-Enjoy!
+But you can still push both subfolders as usual to you Github repository using ...
+
+`git push origin main`
+
+Check it out, buddy! Enjoy :)
