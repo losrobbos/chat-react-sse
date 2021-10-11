@@ -22,6 +22,7 @@ Wonder how to deploy one folder in your repo to vercel and the other folder to H
 First let's link our Repository to Heroku with:
 
 `heroku login`
+
 `heroku create:apps <YourApiName>` (example: `heroku create:apps my-chat-api`)
 
 Heroku will now add a remote GIT connection, which you can see with:
