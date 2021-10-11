@@ -29,11 +29,11 @@ Heroku will now add a remote GIT connection, which you can see with:
 
 `git remote -v`
 
-Important: Now our MAIN folder is linked to Heroku. So when we deploy we would deploy both folder, the client and the API folder.
+Important: Now our MAIN folder is linked to Heroku. So when we deploy we would deploy both folders, the client and the API folder.
 
 We do not want that.
 
-We could create a sub-repository in the api folder instead, that that brings a lot of complications.
+We could create a sub-repository in the api folder instead, but that brings a lot of complications.
 
 Instead we can now tell Heroku to push a subdirectory (!) only on deploy.
 
