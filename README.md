@@ -5,7 +5,7 @@ This App show how to realize a chat by subscribing to events on a server using
 - Server Sent Events (SSE) with Node / Express.js
 - The EventSource class of JavaScript in the browser
 
-Demo: [https://chat-sse-ui.vercel.app](https://chat-sse-ui.vercel.app/)
+Demo: [https://chat-sse-ui.vercel.app](https://chat-sse-ui.vercel.app/) (once opened => right click on the tab > "Duplicate" and start chatting with yourself :))
 
 ## Deployment Notes
 
