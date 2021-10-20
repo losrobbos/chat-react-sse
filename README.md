@@ -1,6 +1,6 @@
 # Chat with Server Sent Events
 
-This App show how to realize a chat by subscribing to events on a server using
+This App shows how to realize a chat by subscribing to events on a server using
 
 - Server Sent Events (SSE) with Node / Express.js
 - The EventSource class of JavaScript in the browser
