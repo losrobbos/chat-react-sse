@@ -40,6 +40,8 @@ Within your main repo folder you can do this with:
 
 `git subtree push --prefix api heroku main`
 
+You can also view a short article on Heroku subfolder deploy here: https://janessagarrow.com/blog/how-to-deploy-a-subdirectory-to-heroku/
+
 Et voila: Now Heroku should just push and deploy the api folder and make it available on an URL.
 
 But you can still push both subfolders as usual to you Github repository using ...

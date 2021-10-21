@@ -31,6 +31,10 @@ api.get('/messages', (req, res) => {
         timestamp: Date.now()
     })}\n\n`);
 
+    const timer = setInterval(() => {
+        res.write(`data: ${JSON.stringify({ type: "heartbeat" })}\n\n`);
+      }, 30 * 1000);
+
     // register event listener on express instance!
     api.on("message", (msg) => {
         // console.log("Event with new message received...")
@@ -45,7 +49,7 @@ api.get('/messages', (req, res) => {
 // route for receiving new messages and forward them to stream
 api.post('/message', (req, res, next) => {
     const { user, message } = req.body;
-    let msg = { user, message, timestamp: Date.now() }
+    let msg = { user, message, timestamp: Date.now(), type: "message" }
 
     // forward the message to the stream
     console.log("Message received: ", msg)
