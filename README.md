@@ -1,11 +1,11 @@
 # Chat with Server Sent Events
 
-This App show how to realize a chat by subscribing to events on a server using
+This App shows how to realize a chat by subscribing to events on a server using
 
 - Server Sent Events (SSE) with Node / Express.js
 - The EventSource class of JavaScript in the browser
 
-Demo: [https://chat-sse-ui.vercel.app](https://chat-sse-ui.vercel.app/)
+Demo: [https://chat-sse-ui.vercel.app](https://chat-sse-ui.vercel.app/) (once opened => right click on the tab > "Duplicate" and start chatting with yourself :))
 
 ## Deployment Notes
 
@@ -22,17 +22,18 @@ Wonder how to deploy one folder in your repo to vercel and the other folder to H
 First let's link our Repository to Heroku with:
 
 `heroku login`
+
 `heroku create:apps <YourApiName>` (example: `heroku create:apps my-chat-api`)
 
 Heroku will now add a remote GIT connection, which you can see with:
 
 `git remote -v`
 
-Important: Now our MAIN folder is linked to Heroku. So when we deploy we would deploy both folder, the client and the API folder.
+Important: Now our MAIN folder is linked to Heroku. So when we deploy we would deploy both folders, the client and the API folder.
 
 We do not want that.
 
-We could create a sub-repository in the api folder instead, that that brings a lot of complications.
+We could create a sub-repository in the api folder instead, but that brings a lot of complications.
 
 Instead we can now tell Heroku to push a subdirectory (!) only on deploy.
 
