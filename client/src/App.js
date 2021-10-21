@@ -17,6 +17,7 @@ function App() {
   const onMessageEvent = (event) => {
     const data = JSON.parse( event.data ); // convert event string to object
     console.log("Received:", data)
+    if(data.type === "heartbeat") return // ignore heartbeat messages
     setHistory([...history, data])
   }
 

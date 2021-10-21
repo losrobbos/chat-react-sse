@@ -28,6 +28,7 @@ api.get('/messages', (req, res) => {
     res.write(`data: ${JSON.stringify({ 
         user: "Admin", 
         message: "May the force be with you...",
+        type: "message",
         timestamp: Date.now()
     })}\n\n`);
 
